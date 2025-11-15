@@ -1,4 +1,10 @@
-import { ImageBackground, StyleSheet, useColorScheme } from "react-native";
+import {
+	ImageBackground,
+	StyleSheet,
+	useColorScheme,
+	View,
+} from "react-native";
+import { Container } from "./container";
 
 export const ThemeBackgroundScreen = () => {
 	const colorScheme = useColorScheme();
@@ -9,17 +15,22 @@ export const ThemeBackgroundScreen = () => {
 			: require("../assets/images/bg-mobile-light.jpg");
 
 	return (
-		<ImageBackground
-			source={backgroundImage}
-			style={styles.backgroundImage}
-		></ImageBackground>
+		<View style={styles.wrapper}>
+			<ImageBackground source={backgroundImage} style={styles.backgroundImage}>
+				<Container />
+			</ImageBackground>
+		</View>
 	);
 };
 
 const styles = StyleSheet.create({
+	wrapper: {
+		width: "100%",
+	},
+
 	backgroundImage: {
 		resizeMode: "cover",
-		justifyContent: "center",
-		height: 200,
+		width: "100%",
+		aspectRatio: 375 / 200,
 	},
 });

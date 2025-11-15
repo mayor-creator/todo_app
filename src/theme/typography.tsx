@@ -1,8 +1,7 @@
 export const typography = {
 	fontFamily: {
-		regular: '"Josefin Sans", sans-serif',
-		medium: '"Josefin Sans", sans-serif',
-		bold: '"Josefin Sans", sans-serif',
+		regular: "JosefinSans_400Regular",
+		bold: "JosefinSans_600Bold",
 	},
 
 	fontSize: {
