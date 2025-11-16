@@ -156,7 +156,12 @@ const styles = StyleSheet.create({
 	listContainer: {
 		paddingTop: theme.spacing.spacing300,
 		paddingBottom: theme.spacing.spacing300,
-		borderRadius: 5,
+		borderRadius: 10,
+		shadowColor: "#000",
+		shadowOffset: { width: 0, height: 2 },
+		shadowOpacity: 0.05,
+		shadowRadius: 4,
+		elevation: 3,
 	},
 
 	todoText: {
@@ -191,12 +196,17 @@ const styles = StyleSheet.create({
 	},
 
 	actionContainer: {
-		borderRadius: 5,
+		borderRadius: 10,
 		flexDirection: "row",
 		justifyContent: "space-between",
 		paddingHorizontal: theme.spacing.spacing300,
 		alignItems: "center",
 		height: 50,
+		shadowColor: "#000",
+		shadowOffset: { width: 0, height: 1 },
+		shadowOpacity: 0.05,
+		shadowRadius: 4,
+		elevation: 1,
 	},
 
 	darkTextColor: {
