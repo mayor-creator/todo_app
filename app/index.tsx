@@ -1,7 +1,7 @@
+import { ThemeBackgroundScreen } from "@/components/themedBackgroundScreen";
 import { useFonts } from "expo-font";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, useColorScheme, View } from "react-native";
-import { ThemeBackgroundScreen } from "@/components/themedBackgroundScreen";
 import { theme } from "../src/theme";
 
 export default function Index() {
