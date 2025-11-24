@@ -1,7 +1,8 @@
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Checkbox } from "expo-checkbox";
 import * as Crypto from "expo-crypto";
 import { Image } from "expo-image";
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import {
 	FlatList,
 	Pressable,
@@ -64,6 +65,33 @@ export const MainContainer = () => {
 		if (filterItems === "completed") return item.completed;
 		return true;
 	});
+
+	const saveTodos = useCallback(async () => {
+		try {
+			await AsyncStorage.setItem("todos", JSON.stringify(todoItems));
+		} catch (error) {
+			console.error("Error saving todos:", error);
+		}
+	}, [todoItems]);
+
+	const loadTodos = useCallback(async () => {
+		try {
+			const savedTodos = await AsyncStorage.getItem("todos");
+			if (savedTodos) {
+				setTodoItems(JSON.parse(savedTodos));
+			}
+		} catch (error) {
+			console.error("Error loading todos:", error);
+		}
+	}, []);
+
+	useEffect(() => {
+		loadTodos();
+	}, [loadTodos]);
+
+	useEffect(() => {
+		saveTodos();
+	}, [saveTodos]);
 
 	return (
 		<View style={styles.mainContainer}>
